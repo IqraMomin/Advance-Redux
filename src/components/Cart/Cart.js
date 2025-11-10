@@ -12,6 +12,8 @@ const Cart = (props) => {
       <ul>
         {cartItems.map(ele=>{
           return <CartItem
+          key={ele.id}
+          id={ele.id}
           item={ele}
         />
         })}
