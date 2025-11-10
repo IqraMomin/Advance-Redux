@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialCartState = {
-    setCart:false,
     cartItems:[],
     totalQuantity:0
 }
@@ -10,9 +9,6 @@ const cartSlice = createSlice({
     name:'cart',
     initialState:initialCartState,
     reducers:{
-        showCart:(state)=>{
-            state.setCart = !state.setCart
-        },
         addToCart:(state,action)=>{
             const existingItemIndex = state.cartItems.findIndex(ele=>ele.id===action.payload.id);
             const existingItem = state.cartItems[existingItemIndex];
