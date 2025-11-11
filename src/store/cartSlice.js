@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { sendCartData } from "./cart-actions";
+
 
 const initialCartState = {
     cartItems:[],
@@ -46,7 +48,16 @@ const cartSlice = createSlice({
                 state.totalQuantity = state.totalQuantity-1;              
             }
             
+        },
+        extraReducers:(builder)=>{
+            builder.addCase(sendCartData.fulfilled,(state,action)=>{
+                console.log("cart data sent");
+            })
+            builder.addCase(sendCartData.rejected,(state,action)=>{
+                console.log("Failed to send the cart data");
+            })
         }
+        
         
     }
 });
